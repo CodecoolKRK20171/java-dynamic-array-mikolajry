@@ -89,6 +89,33 @@ public class DynamicIntArray {
         throw new ArrayIndexOutOfBoundsException("Element not found : " + element);
     }
 
+    public void remove(int i)
+    {
+        int indexToRemove = searchElement(i);
+        if (indexToRemove >= 0)
+        {
+            removeElementAtIndex(indexToRemove);
+        }
+    }
+
+    public void removeElementAtIndex(int i)
+    {
+        if (i < index)
+        {
+            for(int j = i; j < index; j++)
+            {
+                array[j] = array[j+1];
+            }
+            array[index--] = 0;
+            resize();
+        }
+        else
+        {
+            throw new ArrayIndexOutOfBoundsException("index " + i + " is greater than the size of array " + index);
+        }
+    }
+
+
 
     public String toString() {
 
