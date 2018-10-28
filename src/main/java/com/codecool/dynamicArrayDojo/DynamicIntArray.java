@@ -60,6 +60,23 @@ public class DynamicIntArray {
         length = length/4;
     }
 
+    public void insert(int i, int element)
+    {
+        if (i < index)
+        {
+            index++;
+            for (int j = index; j > i; j--) {
+                resize();
+                array[j] = array[j - 1];
+            }
+            array[i] = element;
+        }
+        else
+        {
+            add(element);
+        }
+    }
+
 
     public String toString() {
 
