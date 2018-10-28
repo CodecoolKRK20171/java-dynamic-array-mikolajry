@@ -77,6 +77,18 @@ public class DynamicIntArray {
         }
     }
 
+    public int searchElement(int element)
+    {
+        for(int i = 0; i < index; i++)
+        {
+            if(array[i] == element)
+            {
+                return i;
+            }
+        }
+        throw new ArrayIndexOutOfBoundsException("Element not found : " + element);
+    }
+
 
     public String toString() {
 
